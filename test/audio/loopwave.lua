@@ -33,7 +33,8 @@ typedef struct
 
 ffi.cdef(ud_code)
 local wave = ffi.new"wave"
-local device;
+local stream;
+local device
 
 --/* Call this instead of exit(), so we can clean up SDL: atexit() is evil. */
 function quit(rc)
@@ -52,16 +53,16 @@ end
 function open_audio()
 
     --/* Initialize fillerup() variables */
-    device = sdl.OpenAudioDevice(nil, sdl.FALSE, wave.spec, nil, 0);
-    if (device==0) then
+    stream = sdl.OpenAudioDeviceStream(sdl.AUDIO_DEVICE_DEFAULT_PLAYBACK, wave.spec, nil, nil)--, sdl.MakeAudioCallback(fillerup,ud_code), wave);
+    if (stream == nil) then
         sdl.LogError(sdl.LOG_CATEGORY_APPLICATION, "Couldn't open audio: %s\n", sdl.GetError());
         sdl.FreeWAV(wave.sound);
         quit(2);
     end
 
-
+	device = sdl.GetAudioStreamDevice(stream)
     --/* Let the audio run */
-    sdl.PauseAudioDevice(device, sdl.FALSE);
+    sdl.ResumeAudioDevice(sdl.GetAudioStreamDevice(stream))
 end
 
 function reopen_audio()
@@ -70,32 +71,7 @@ function reopen_audio()
 end
 
 
-local function fillerup(udcode)
-    local ffi = require"ffi"
-    local sdl = require"sdl3_ffi"
-    local waveptr = ffi.new"Uint8[1]"
-    ffi.cdef(udcode)
-    return function(ud,stream,len)
-    
-        local waveleft;
-        local wave = ffi.cast("wave*",ud)
-        --/* Set up the pointers */
-        waveptr = wave.sound[0] + wave.soundpos;
-        waveleft = wave.soundlen[0] - wave.soundpos;
-    
-        --/* Go! */
-        while (waveleft <= len) do
-            sdl.C.SDL_memcpy(stream, waveptr, waveleft);
-            stream = stream + waveleft;
-            len = len - waveleft;
-            waveptr = wave.sound[0];
-            waveleft = wave.soundlen[0];
-            wave.soundpos = 0;
-        end
-        sdl.C.SDL_memcpy(stream, waveptr, len);
-        wave.soundpos = wave.soundpos + len;
-    end
-end
+
 local done = false;
 
 
@@ -119,9 +95,6 @@ local done = false;
         quit(1);
     end
 
-    wave.spec[0].callback = sdl.MakeAudioCallback(fillerup,ud_code)
-    wave.spec[0].userdata = wave
-
     --/* Show the list of available drivers */
     sdl.Log("Available audio drivers:");
     for i = 0,sdl.GetNumAudioDrivers()-1 do
@@ -132,21 +105,25 @@ local done = false;
 
     open_audio();
 
-    sdl.FlushEvents(sdl.AUDIODEVICEADDED, sdl.AUDIODEVICEREMOVED);
+    sdl.FlushEvents(sdl.EVENT_AUDIO_DEVICE_ADDED, sdl.EVENT_AUDIO_DEVICE_REMOVED);
 
 
     while (not done) do
         local event = ffi.new"SDL_Event"
 
-        while (sdl.PollEvent(event) > 0) do
-            if (event.type == sdl.QUIT) then
+        while (sdl.PollEvent(event)) do
+            if (event.type == sdl.EVENT_QUIT) then
                 done = true;
             end
-            if ((event.type == sdl.AUDIODEVICEADDED and not event.adevice.iscapture==1) or
-                (event.type == sdl.AUDIODEVICEREMOVED and not event.adevice.iscapture==1 and event.adevice.which == device)) then
+            if ((event.type == sdl.EVENT_AUDIO_DEVICE_ADDED and not event.adevice.recording==1) or
+                (event.type == sdl.EVENT_AUDIO_DEVICE_REMOVED and not event.adevice.recording==1 and event.adevice.which == device)) then
                 reopen_audio();
             end
         end
+		if (sdl.GetAudioStreamAvailable(stream) < wave.soundlen[0]) then
+        -- feed more data to the stream. It will queue at the end, and trickle out as the hardware needs more data. */
+			sdl.PutAudioStreamData(stream, wave.sound[0], wave.soundlen[0]);
+		end
         sdl.Delay(100);
     end
 
