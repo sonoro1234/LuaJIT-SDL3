@@ -13,6 +13,6 @@ add_dependencies(snd3_ffi SDL3-shared)
 
 install(TARGETS SDL3-shared RUNTIME DESTINATION ${LUAJIT_BIN}
 					LIBRARY DESTINATION ${LUAJIT_BIN})
-INSTALL(FILES sdl3_ffi.lua sdl3AudioPlayer.lua DESTINATION ${LUAJIT_BIN}/lua)
+INSTALL(FILES sdl3_ffi.lua  DESTINATION ${LUAJIT_BIN}/lua) #sdl3AudioPlayer.lua
 
 
