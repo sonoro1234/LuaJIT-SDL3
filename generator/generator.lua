@@ -74,6 +74,8 @@ for i,v in ipairs(defines) do
 		if (v[1]):match(wan) then wanted=true; break end
 	end
 	if wanted then
+		-- clear SDL_UINT64_C
+		v[2] = v[2]:gsub("SDL_UINT64_C","")
 		local lin = "static const int "..v[1].." = " .. v[2] .. ";"
 		local ok,msg = pcall(function() return ffi.cdef(lin) end)
 		if not ok then

@@ -3543,6 +3543,11 @@ _Bool                                 SDL_GPUTextureSupportsSampleCount(
     SDL_GPUDevice *device,
     SDL_GPUTextureFormat format,
     SDL_GPUSampleCount sample_count);
+Uint32 SDL_CalculateGPUTextureFormatSize(
+    SDL_GPUTextureFormat format,
+    Uint32 width,
+    Uint32 height,
+    Uint32 depth_or_layer_count);
 typedef struct SDL_Haptic SDL_Haptic;
 typedef struct SDL_HapticDirection
 {
@@ -4110,6 +4115,7 @@ Uint64 SDL_GetPerformanceCounter(void);
 Uint64 SDL_GetPerformanceFrequency(void);
 void SDL_Delay(Uint32 ms);
 void SDL_DelayNS(Uint64 ns);
+void SDL_DelayPrecise(Uint64 ns);
 typedef Uint32 SDL_TimerID;
 typedef Uint32 ( *SDL_TimerCallback)(void *userdata, SDL_TimerID timerID, Uint32 interval);
 SDL_TimerID SDL_AddTimer(Uint32 interval, SDL_TimerCallback callback, void *userdata);
@@ -4134,6 +4140,7 @@ static const int SDL_MAX_SINT32 = ((Sint32)0x7FFFFFFF);
 static const int SDL_MIN_SINT32 = ((Sint32)(~0x7FFFFFFF));
 static const int SDL_MAX_UINT32 = ((Uint32)0xFFFFFFFFu);
 static const int SDL_MIN_UINT32 = ((Uint32)0x00000000);
+static const int SDL_MIN_UINT64 = (0x0000000000000000);
 static const int SDL_PRIs64 = "I64d";
 static const int SDL_PRIu64 = "I64u";
 static const int SDL_PRIx64 = "I64x";
@@ -4187,6 +4194,31 @@ static const int SDL_PROP_SURFACE_HDR_HEADROOM_FLOAT = "SDL.surface.HDR_headroom
 static const int SDL_PROP_SURFACE_TONEMAP_OPERATOR_STRING = "SDL.surface.tonemap";
 static const int SDL_CACHELINE_SIZE = 128;
 static const int SDL_PROP_GLOBAL_VIDEO_WAYLAND_WL_DISPLAY_POINTER = "SDL.video.wayland.wl_display";
+static const int SDL_WINDOW_FULLSCREEN = (0x0000000000000001);
+static const int SDL_WINDOW_OPENGL = (0x0000000000000002);
+static const int SDL_WINDOW_OCCLUDED = (0x0000000000000004);
+static const int SDL_WINDOW_HIDDEN = (0x0000000000000008);
+static const int SDL_WINDOW_BORDERLESS = (0x0000000000000010);
+static const int SDL_WINDOW_RESIZABLE = (0x0000000000000020);
+static const int SDL_WINDOW_MINIMIZED = (0x0000000000000040);
+static const int SDL_WINDOW_MAXIMIZED = (0x0000000000000080);
+static const int SDL_WINDOW_MOUSE_GRABBED = (0x0000000000000100);
+static const int SDL_WINDOW_INPUT_FOCUS = (0x0000000000000200);
+static const int SDL_WINDOW_MOUSE_FOCUS = (0x0000000000000400);
+static const int SDL_WINDOW_EXTERNAL = (0x0000000000000800);
+static const int SDL_WINDOW_MODAL = (0x0000000000001000);
+static const int SDL_WINDOW_HIGH_PIXEL_DENSITY = (0x0000000000002000);
+static const int SDL_WINDOW_MOUSE_CAPTURE = (0x0000000000004000);
+static const int SDL_WINDOW_MOUSE_RELATIVE_MODE = (0x0000000000008000);
+static const int SDL_WINDOW_ALWAYS_ON_TOP = (0x0000000000010000);
+static const int SDL_WINDOW_UTILITY = (0x0000000000020000);
+static const int SDL_WINDOW_TOOLTIP = (0x0000000000040000);
+static const int SDL_WINDOW_POPUP_MENU = (0x0000000000080000);
+static const int SDL_WINDOW_KEYBOARD_GRABBED = (0x0000000000100000);
+static const int SDL_WINDOW_VULKAN = (0x0000000010000000);
+static const int SDL_WINDOW_METAL = (0x0000000020000000);
+static const int SDL_WINDOW_TRANSPARENT = (0x0000000040000000);
+static const int SDL_WINDOW_NOT_FOCUSABLE = (0x0000000080000000);
 static const int SDL_WINDOWPOS_UNDEFINED_MASK = 0x1FFF0000u;
 static const int SDL_WINDOWPOS_CENTERED_MASK = 0x2FFF0000u;
 static const int SDL_PROP_DISPLAY_HDR_ENABLED_BOOLEAN = "SDL.display.HDR_enabled";
@@ -4758,7 +4790,7 @@ static const int SDL_HINT_LOGGING = "SDL_LOGGING";
 static const int SDL_HINT_MAC_BACKGROUND_APP = "SDL_MAC_BACKGROUND_APP";
 static const int SDL_HINT_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK = "SDL_MAC_CTRL_CLICK_EMULATE_RIGHT_CLICK";
 static const int SDL_HINT_MAC_OPENGL_ASYNC_DISPATCH = "SDL_MAC_OPENGL_ASYNC_DISPATCH";
-static const int SDL_HINT_MAC_SCROLL_MOMENTUM = "SDL_HINT_MAC_SCROLL_MOMENTUM";
+static const int SDL_HINT_MAC_SCROLL_MOMENTUM = "SDL_MAC_SCROLL_MOMENTUM";
 static const int SDL_HINT_MAIN_CALLBACK_RATE = "SDL_MAIN_CALLBACK_RATE";
 static const int SDL_HINT_MOUSE_AUTO_CAPTURE = "SDL_MOUSE_AUTO_CAPTURE";
 static const int SDL_HINT_MOUSE_DOUBLE_CLICK_RADIUS = "SDL_MOUSE_DOUBLE_CLICK_RADIUS";
