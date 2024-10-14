@@ -24,7 +24,6 @@ local function AudioInit(udatacode)
 	return function(ud,stream,len,totallen)
 		local udc = ffi.cast("MyUdata*",ud)
 		local lenf = len/flsize
-		--print(lenf)
 		while lenf > 0 do
 			local total = min(lenf,buflen)
 			for i=0,total-2,2 do
@@ -42,7 +41,8 @@ end
 
 -- the specs
 local specs = ffi.new("SDL_AudioSpec[1]",{{sdl.AUDIO_F32,2,sampleHz}})
---local specs = ffi.new("SDL_AudioSpec[1]",{{0,2,sampleHz}})
+--local specs = ffi.new("SDL_AudioSpec[1]",{{sdl.AUDIO_F32,2,30}})
+
 
 -- to change frequency from this thread
 local udatacode = [[typedef struct {double Phase;double dPhase;} MyUdata]]
@@ -74,6 +74,7 @@ else
     end
     sdl.PauseAudioDevice(sdl.GetAudioStreamDevice(stream))
     sdl.CloseAudioDevice(sdl.GetAudioStreamDevice(stream));
+	sdl.DestroyAudioStream(stream)
 end
 sdl.Log("done")
 sdl.Quit()
