@@ -1,5 +1,17 @@
 local M = {}
 
+local function table_do_sorted(t,f)
+	local sorted = {}
+	for k,v in pairs(t) do
+		table.insert(sorted,k)
+	end
+	table.sort(sorted)
+	for ii,k in ipairs(sorted) do
+		f(k,t[k])
+	end
+end
+M.table_do_sorted = table_do_sorted
+
 local function str_split(str, pat)
 	local t = {} 
 	local fpat = "(.-)" .. pat

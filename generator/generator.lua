@@ -120,7 +120,7 @@ end
 --]]
 
 local strdefT = {}
-for k,v in pairs(defstrtab) do table.insert(strdefT,k.."="..v..",") end
+cp2c.table_do_sorted(defstrtab, function(k,v) table.insert(strdefT,k.."="..v..",") end)
 local strdef = "local strdef = {"..table.concat(strdefT,"\n").."}"
 --output sdl3_ffi
 local sdlstr = strdef..[[
