@@ -65,6 +65,7 @@ for k,v in ipairs(itemsarr) do
 end
 ------------------------------
 local deftab = {"//defines"}
+local defstrtab = {}
 local ffi = require"ffi"
 ffi_cdef(table.concat(cdefs,""))
 local wanted_strings = {"^SDL","^AUDIO_","^KMOD_","^RW_"}
@@ -76,13 +77,17 @@ for i,v in ipairs(defines) do
 	if wanted then
 		-- clear SDL_UINT64_C
 		v[2] = v[2]:gsub("SDL_UINT64_C","")
-		local lin = "static const int "..v[1].." = " .. v[2] .. ";"
-		local ok,msg = pcall(function() return ffi.cdef(lin) end)
-		if not ok then
-			print("skipping def",lin)
-			print(msg)
+		if v[2]:match([[^%b""]]) then
+			defstrtab[v[1]]=v[2] --is string def
 		else
-			table.insert(deftab,lin)
+			local lin = "static const int "..v[1].." = " .. v[2] .. ";"
+			local ok,msg = pcall(function() return ffi.cdef(lin) end)
+			if not ok then
+				print("skipping def",lin)
+				print(msg)
+			else
+				table.insert(deftab,lin)
+			end
 		end
 	end
 end
@@ -114,9 +119,11 @@ for i,v in ipairs(items[function_re]) do
 end
 --]]
 
-
---output sdl2_ffi
-local sdlstr = [[
+local strdefT = {}
+for k,v in pairs(defstrtab) do table.insert(strdefT,k.."="..v..",") end
+local strdef = "local strdef = {"..table.concat(strdefT,"\n").."}"
+--output sdl3_ffi
+local sdlstr = strdef..[[
 local ffi = require"ffi"
 
 --uncomment to debug cdef calls]]..
@@ -147,7 +154,7 @@ ffi_cdef]].."[["..special.."]]"..[[
 
 local lib = ffi.load"SDL3"
 
-local M = {C=lib}
+local M = {C=lib,strdef=strdef}
 
 
 
