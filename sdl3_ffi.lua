@@ -5109,7 +5109,12 @@ __index = function(t,k)
 	local ok,ptr = pcall(function(str) return lib["SDL_"..str] end,k)
 	if not ok then ok,ptr = pcall(function(str) return lib[str] end,k) end --some defines without SDL_
 	if not ok then
-		ok,ptr = pcall(function(str) return strdef[str] end,k)
+		ptr = strdef[k]
+		ok = ptr and true or false
+	end
+	if not ok then --torch sdl2 calling
+		local str2 = "SDL_"..string.upper(k:sub(1,1))..k:sub(2)
+		ok,ptr = pcall(function(str) return lib[str] end,str2) 
 	end
 	if not ok then error(k.." not found") end
 	rawset(M, k, ptr)
