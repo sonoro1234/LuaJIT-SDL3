@@ -1,6 +1,7 @@
 local strdef = {SDL_HINT_ALLOW_ALT_TAB_WHILE_GRABBED="SDL_ALLOW_ALT_TAB_WHILE_GRABBED",
 SDL_HINT_ANDROID_ALLOW_RECREATE_ACTIVITY="SDL_ANDROID_ALLOW_RECREATE_ACTIVITY",
 SDL_HINT_ANDROID_BLOCK_ON_PAUSE="SDL_ANDROID_BLOCK_ON_PAUSE",
+SDL_HINT_ANDROID_LOW_LATENCY_AUDIO="SDL_ANDROID_LOW_LATENCY_AUDIO",
 SDL_HINT_ANDROID_TRAP_BACK_BUTTON="SDL_ANDROID_TRAP_BACK_BUTTON",
 SDL_HINT_APPLE_TV_CONTROLLER_UI_EVENTS="SDL_APPLE_TV_CONTROLLER_UI_EVENTS",
 SDL_HINT_APPLE_TV_REMOTE_ALLOW_ROTATION="SDL_APPLE_TV_REMOTE_ALLOW_ROTATION",
@@ -8,6 +9,8 @@ SDL_HINT_APP_ID="SDL_APP_ID",
 SDL_HINT_APP_NAME="SDL_APP_NAME",
 SDL_HINT_ASSERT="SDL_ASSERT",
 SDL_HINT_AUDIO_ALSA_DEFAULT_DEVICE="SDL_AUDIO_ALSA_DEFAULT_DEVICE",
+SDL_HINT_AUDIO_ALSA_DEFAULT_PLAYBACK_DEVICE="SDL_AUDIO_ALSA_DEFAULT_PLAYBACK_DEVICE",
+SDL_HINT_AUDIO_ALSA_DEFAULT_RECORDING_DEVICE="SDL_AUDIO_ALSA_DEFAULT_RECORDING_DEVICE",
 SDL_HINT_AUDIO_CATEGORY="SDL_AUDIO_CATEGORY",
 SDL_HINT_AUDIO_CHANNELS="SDL_AUDIO_CHANNELS",
 SDL_HINT_AUDIO_DEVICE_APP_ICON_NAME="SDL_AUDIO_DEVICE_APP_ICON_NAME",
@@ -28,6 +31,7 @@ SDL_HINT_BMP_SAVE_LEGACY_FORMAT="SDL_BMP_SAVE_LEGACY_FORMAT",
 SDL_HINT_CAMERA_DRIVER="SDL_CAMERA_DRIVER",
 SDL_HINT_CPU_FEATURE_MASK="SDL_CPU_FEATURE_MASK",
 SDL_HINT_DISPLAY_USABLE_BOUNDS="SDL_DISPLAY_USABLE_BOUNDS",
+SDL_HINT_EGL_LIBRARY="SDL_EGL_LIBRARY",
 SDL_HINT_EMSCRIPTEN_ASYNCIFY="SDL_EMSCRIPTEN_ASYNCIFY",
 SDL_HINT_EMSCRIPTEN_CANVAS_SELECTOR="SDL_EMSCRIPTEN_CANVAS_SELECTOR",
 SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT="SDL_EMSCRIPTEN_KEYBOARD_ELEMENT",
@@ -63,6 +67,7 @@ SDL_HINT_JOYSTICK_BLACKLIST_DEVICES="SDL_JOYSTICK_BLACKLIST_DEVICES",
 SDL_HINT_JOYSTICK_BLACKLIST_DEVICES_EXCLUDED="SDL_JOYSTICK_BLACKLIST_DEVICES_EXCLUDED",
 SDL_HINT_JOYSTICK_DEVICE="SDL_JOYSTICK_DEVICE",
 SDL_HINT_JOYSTICK_DIRECTINPUT="SDL_JOYSTICK_DIRECTINPUT",
+SDL_HINT_JOYSTICK_ENHANCED_REPORTS="SDL_JOYSTICK_ENHANCED_REPORTS",
 SDL_HINT_JOYSTICK_FLIGHTSTICK_DEVICES="SDL_JOYSTICK_FLIGHTSTICK_DEVICES",
 SDL_HINT_JOYSTICK_FLIGHTSTICK_DEVICES_EXCLUDED="SDL_JOYSTICK_FLIGHTSTICK_DEVICES_EXCLUDED",
 SDL_HINT_JOYSTICK_GAMECUBE_DEVICES="SDL_JOYSTICK_GAMECUBE_DEVICES",
@@ -80,14 +85,13 @@ SDL_HINT_JOYSTICK_HIDAPI_PS3="SDL_JOYSTICK_HIDAPI_PS3",
 SDL_HINT_JOYSTICK_HIDAPI_PS3_SIXAXIS_DRIVER="SDL_JOYSTICK_HIDAPI_PS3_SIXAXIS_DRIVER",
 SDL_HINT_JOYSTICK_HIDAPI_PS4="SDL_JOYSTICK_HIDAPI_PS4",
 SDL_HINT_JOYSTICK_HIDAPI_PS4_REPORT_INTERVAL="SDL_JOYSTICK_HIDAPI_PS4_REPORT_INTERVAL",
-SDL_HINT_JOYSTICK_HIDAPI_PS4_RUMBLE="SDL_JOYSTICK_HIDAPI_PS4_RUMBLE",
 SDL_HINT_JOYSTICK_HIDAPI_PS5="SDL_JOYSTICK_HIDAPI_PS5",
 SDL_HINT_JOYSTICK_HIDAPI_PS5_PLAYER_LED="SDL_JOYSTICK_HIDAPI_PS5_PLAYER_LED",
-SDL_HINT_JOYSTICK_HIDAPI_PS5_RUMBLE="SDL_JOYSTICK_HIDAPI_PS5_RUMBLE",
 SDL_HINT_JOYSTICK_HIDAPI_SHIELD="SDL_JOYSTICK_HIDAPI_SHIELD",
 SDL_HINT_JOYSTICK_HIDAPI_STADIA="SDL_JOYSTICK_HIDAPI_STADIA",
 SDL_HINT_JOYSTICK_HIDAPI_STEAM="SDL_JOYSTICK_HIDAPI_STEAM",
 SDL_HINT_JOYSTICK_HIDAPI_STEAMDECK="SDL_JOYSTICK_HIDAPI_STEAMDECK",
+SDL_HINT_JOYSTICK_HIDAPI_STEAM_HOME_LED="SDL_JOYSTICK_HIDAPI_STEAM_HOME_LED",
 SDL_HINT_JOYSTICK_HIDAPI_STEAM_HORI="SDL_JOYSTICK_HIDAPI_STEAM_HORI",
 SDL_HINT_JOYSTICK_HIDAPI_SWITCH="SDL_JOYSTICK_HIDAPI_SWITCH",
 SDL_HINT_JOYSTICK_HIDAPI_SWITCH_HOME_LED="SDL_JOYSTICK_HIDAPI_SWITCH_HOME_LED",
@@ -127,15 +131,14 @@ SDL_HINT_MAC_OPENGL_ASYNC_DISPATCH="SDL_MAC_OPENGL_ASYNC_DISPATCH",
 SDL_HINT_MAC_SCROLL_MOMENTUM="SDL_MAC_SCROLL_MOMENTUM",
 SDL_HINT_MAIN_CALLBACK_RATE="SDL_MAIN_CALLBACK_RATE",
 SDL_HINT_MOUSE_AUTO_CAPTURE="SDL_MOUSE_AUTO_CAPTURE",
+SDL_HINT_MOUSE_DEFAULT_SYSTEM_CURSOR="SDL_MOUSE_DEFAULT_SYSTEM_CURSOR",
 SDL_HINT_MOUSE_DOUBLE_CLICK_RADIUS="SDL_MOUSE_DOUBLE_CLICK_RADIUS",
 SDL_HINT_MOUSE_DOUBLE_CLICK_TIME="SDL_MOUSE_DOUBLE_CLICK_TIME",
 SDL_HINT_MOUSE_EMULATE_WARP_WITH_RELATIVE="SDL_MOUSE_EMULATE_WARP_WITH_RELATIVE",
 SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH="SDL_MOUSE_FOCUS_CLICKTHROUGH",
 SDL_HINT_MOUSE_NORMAL_SPEED_SCALE="SDL_MOUSE_NORMAL_SPEED_SCALE",
-SDL_HINT_MOUSE_RELATIVE_CLIP_INTERVAL="SDL_MOUSE_RELATIVE_CLIP_INTERVAL",
 SDL_HINT_MOUSE_RELATIVE_CURSOR_VISIBLE="SDL_MOUSE_RELATIVE_CURSOR_VISIBLE",
 SDL_HINT_MOUSE_RELATIVE_MODE_CENTER="SDL_MOUSE_RELATIVE_MODE_CENTER",
-SDL_HINT_MOUSE_RELATIVE_MODE_WARP="SDL_MOUSE_RELATIVE_MODE_WARP",
 SDL_HINT_MOUSE_RELATIVE_SPEED_SCALE="SDL_MOUSE_RELATIVE_SPEED_SCALE",
 SDL_HINT_MOUSE_RELATIVE_SYSTEM_SCALE="SDL_MOUSE_RELATIVE_SYSTEM_SCALE",
 SDL_HINT_MOUSE_RELATIVE_WARP_MOTION="SDL_MOUSE_RELATIVE_WARP_MOTION",
@@ -144,6 +147,7 @@ SDL_HINT_MUTE_CONSOLE_KEYBOARD="SDL_MUTE_CONSOLE_KEYBOARD",
 SDL_HINT_NO_SIGNAL_HANDLERS="SDL_NO_SIGNAL_HANDLERS",
 SDL_HINT_OPENGL_ES_DRIVER="SDL_OPENGL_ES_DRIVER",
 SDL_HINT_OPENGL_LIBRARY="SDL_OPENGL_LIBRARY",
+SDL_HINT_OPENVR_LIBRARY="SDL_OPENVR_LIBRARY",
 SDL_HINT_ORIENTATIONS="SDL_ORIENTATIONS",
 SDL_HINT_POLL_SENTINEL="SDL_POLL_SENTINEL",
 SDL_HINT_PREFERRED_LOCALES="SDL_PREFERRED_LOCALES",
@@ -172,6 +176,7 @@ SDL_HINT_TOUCH_MOUSE_EVENTS="SDL_TOUCH_MOUSE_EVENTS",
 SDL_HINT_TRACKPAD_IS_TOUCH_ONLY="SDL_TRACKPAD_IS_TOUCH_ONLY",
 SDL_HINT_TV_REMOTE_AS_JOYSTICK="SDL_TV_REMOTE_AS_JOYSTICK",
 SDL_HINT_VIDEO_ALLOW_SCREENSAVER="SDL_VIDEO_ALLOW_SCREENSAVER",
+SDL_HINT_VIDEO_DISPLAY_PRIORITY="SDL_VIDEO_DISPLAY_PRIORITY",
 SDL_HINT_VIDEO_DOUBLE_BUFFER="SDL_VIDEO_DOUBLE_BUFFER",
 SDL_HINT_VIDEO_DRIVER="SDL_VIDEO_DRIVER",
 SDL_HINT_VIDEO_DUMMY_SAVE_FRAMES="SDL_VIDEO_DUMMY_SAVE_FRAMES",
@@ -239,6 +244,14 @@ SDL_PROP_APP_METADATA_URL_STRING="SDL.app.metadata.url",
 SDL_PROP_APP_METADATA_VERSION_STRING="SDL.app.metadata.version",
 SDL_PROP_DISPLAY_HDR_ENABLED_BOOLEAN="SDL.display.HDR_enabled",
 SDL_PROP_DISPLAY_KMSDRM_PANEL_ORIENTATION_NUMBER="SDL.display.KMSDRM.panel_orientation",
+SDL_PROP_FILE_DIALOG_ACCEPT_STRING="SDL.filedialog.accept",
+SDL_PROP_FILE_DIALOG_CANCEL_STRING="SDL.filedialog.cancel",
+SDL_PROP_FILE_DIALOG_FILTERS_POINTER="SDL.filedialog.filters",
+SDL_PROP_FILE_DIALOG_LOCATION_STRING="SDL.filedialog.location",
+SDL_PROP_FILE_DIALOG_MANY_BOOLEAN="SDL.filedialog.many",
+SDL_PROP_FILE_DIALOG_NFILTERS_NUMBER="SDL.filedialog.nfilters",
+SDL_PROP_FILE_DIALOG_TITLE_STRING="SDL.filedialog.title",
+SDL_PROP_FILE_DIALOG_WINDOW_POINTER="SDL.filedialog.window",
 SDL_PROP_GLOBAL_VIDEO_WAYLAND_WL_DISPLAY_POINTER="SDL.video.wayland.wl_display",
 SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_A_FLOAT="SDL.gpu.createtexture.d3d12.clear.a",
 SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_B_FLOAT="SDL.gpu.createtexture.d3d12.clear.b",
@@ -247,15 +260,15 @@ SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_G_FLOAT="SDL.gpu.createtexture.d3d12.clea
 SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_R_FLOAT="SDL.gpu.createtexture.d3d12.clear.r",
 SDL_PROP_GPU_CREATETEXTURE_D3D12_CLEAR_STENCIL_UINT8="SDL.gpu.createtexture.d3d12.clear.stencil",
 SDL_PROP_GPU_DEVICE_CREATE_D3D12_SEMANTIC_NAME_STRING="SDL.gpu.device.create.d3d12.semantic",
-SDL_PROP_GPU_DEVICE_CREATE_DEBUGMODE_BOOL="SDL.gpu.device.create.debugmode",
+SDL_PROP_GPU_DEVICE_CREATE_DEBUGMODE_BOOLEAN="SDL.gpu.device.create.debugmode",
 SDL_PROP_GPU_DEVICE_CREATE_NAME_STRING="SDL.gpu.device.create.name",
-SDL_PROP_GPU_DEVICE_CREATE_PREFERLOWPOWER_BOOL="SDL.gpu.device.create.preferlowpower",
-SDL_PROP_GPU_DEVICE_CREATE_SHADERS_DXBC_BOOL="SDL.gpu.device.create.shaders.dxbc",
-SDL_PROP_GPU_DEVICE_CREATE_SHADERS_DXIL_BOOL="SDL.gpu.device.create.shaders.dxil",
-SDL_PROP_GPU_DEVICE_CREATE_SHADERS_METALLIB_BOOL="SDL.gpu.device.create.shaders.metallib",
-SDL_PROP_GPU_DEVICE_CREATE_SHADERS_MSL_BOOL="SDL.gpu.device.create.shaders.msl",
-SDL_PROP_GPU_DEVICE_CREATE_SHADERS_PRIVATE_BOOL="SDL.gpu.device.create.shaders.private",
-SDL_PROP_GPU_DEVICE_CREATE_SHADERS_SPIRV_BOOL="SDL.gpu.device.create.shaders.spirv",
+SDL_PROP_GPU_DEVICE_CREATE_PREFERLOWPOWER_BOOLEAN="SDL.gpu.device.create.preferlowpower",
+SDL_PROP_GPU_DEVICE_CREATE_SHADERS_DXBC_BOOLEAN="SDL.gpu.device.create.shaders.dxbc",
+SDL_PROP_GPU_DEVICE_CREATE_SHADERS_DXIL_BOOLEAN="SDL.gpu.device.create.shaders.dxil",
+SDL_PROP_GPU_DEVICE_CREATE_SHADERS_METALLIB_BOOLEAN="SDL.gpu.device.create.shaders.metallib",
+SDL_PROP_GPU_DEVICE_CREATE_SHADERS_MSL_BOOLEAN="SDL.gpu.device.create.shaders.msl",
+SDL_PROP_GPU_DEVICE_CREATE_SHADERS_PRIVATE_BOOLEAN="SDL.gpu.device.create.shaders.private",
+SDL_PROP_GPU_DEVICE_CREATE_SHADERS_SPIRV_BOOLEAN="SDL.gpu.device.create.shaders.spirv",
 SDL_PROP_IOSTREAM_ANDROID_AASSET_POINTER="SDL.iostream.android.aasset",
 SDL_PROP_IOSTREAM_DYNAMIC_CHUNKSIZE_NUMBER="SDL.iostream.dynamic.chunksize",
 SDL_PROP_IOSTREAM_DYNAMIC_MEMORY_POINTER="SDL.iostream.dynamic.memory",
@@ -301,6 +314,7 @@ SDL_PROP_RENDERER_D3D12_COMMAND_QUEUE_POINTER="SDL.renderer.d3d12.command_queue"
 SDL_PROP_RENDERER_D3D12_DEVICE_POINTER="SDL.renderer.d3d12.device",
 SDL_PROP_RENDERER_D3D12_SWAPCHAIN_POINTER="SDL.renderer.d3d12.swap_chain",
 SDL_PROP_RENDERER_D3D9_DEVICE_POINTER="SDL.renderer.d3d9.device",
+SDL_PROP_RENDERER_GPU_DEVICE_POINTER="SDL.renderer.gpu.device",
 SDL_PROP_RENDERER_HDR_ENABLED_BOOLEAN="SDL.renderer.HDR_enabled",
 SDL_PROP_RENDERER_HDR_HEADROOM_FLOAT="SDL.renderer.HDR_headroom",
 SDL_PROP_RENDERER_MAX_TEXTURE_SIZE_NUMBER="SDL.renderer.max_texture_size",
@@ -422,6 +436,7 @@ SDL_PROP_WINDOW_HDR_HEADROOM_FLOAT="SDL.window.HDR_headroom",
 SDL_PROP_WINDOW_KMSDRM_DEVICE_INDEX_NUMBER="SDL.window.kmsdrm.dev_index",
 SDL_PROP_WINDOW_KMSDRM_DRM_FD_NUMBER="SDL.window.kmsdrm.drm_fd",
 SDL_PROP_WINDOW_KMSDRM_GBM_DEVICE_POINTER="SDL.window.kmsdrm.gbm_dev",
+SDL_PROP_WINDOW_OPENVR_OVERLAY_ID="SDL.window.openvr.overlay_id",
 SDL_PROP_WINDOW_SDR_WHITE_LEVEL_FLOAT="SDL.window.SDR_white_level",
 SDL_PROP_WINDOW_SHAPE_POINTER="SDL.window.shape",
 SDL_PROP_WINDOW_UIKIT_METAL_VIEW_TAG_NUMBER="SDL.window.uikit.metal_view_tag",
@@ -435,6 +450,7 @@ SDL_PROP_WINDOW_VIVANTE_WINDOW_POINTER="SDL.window.vivante.window",
 SDL_PROP_WINDOW_WAYLAND_DISPLAY_POINTER="SDL.window.wayland.display",
 SDL_PROP_WINDOW_WAYLAND_EGL_WINDOW_POINTER="SDL.window.wayland.egl_window",
 SDL_PROP_WINDOW_WAYLAND_SURFACE_POINTER="SDL.window.wayland.surface",
+SDL_PROP_WINDOW_WAYLAND_VIEWPORT_POINTER="SDL.window.wayland.viewport",
 SDL_PROP_WINDOW_WAYLAND_XDG_POPUP_POINTER="SDL.window.wayland.xdg_popup",
 SDL_PROP_WINDOW_WAYLAND_XDG_POSITIONER_POINTER="SDL.window.wayland.xdg_positioner",
 SDL_PROP_WINDOW_WAYLAND_XDG_SURFACE_POINTER="SDL.window.wayland.xdg_surface",
@@ -574,7 +590,7 @@ char * SDL_strrchr(const char *str, int c);
 char * SDL_strstr(const char *haystack, const char *needle);
 char * SDL_strnstr(const char *haystack, const char *needle, size_t maxlen);
 char * SDL_strcasestr(const char *haystack, const char *needle);
-char * SDL_strtok_r(char *s1, const char *s2, char **saveptr);
+char * SDL_strtok_r(char *str, const char *delim, char **saveptr);
 size_t SDL_utf8strlen(const char *str);
 size_t SDL_utf8strnlen(const char *str, size_t bytes);
 char * SDL_itoa(int value, char *str, int radix);
@@ -703,6 +719,42 @@ SDL_AssertionHandler SDL_GetDefaultAssertionHandler(void);
 SDL_AssertionHandler SDL_GetAssertionHandler(void **puserdata);
 const SDL_AssertData * SDL_GetAssertionReport(void);
 void SDL_ResetAssertionReport(void);
+typedef struct SDL_AsyncIO SDL_AsyncIO;
+typedef enum SDL_AsyncIOTaskType
+{
+    SDL_ASYNCIO_TASK_READ,
+    SDL_ASYNCIO_TASK_WRITE,
+    SDL_ASYNCIO_TASK_CLOSE
+} SDL_AsyncIOTaskType;
+typedef enum SDL_AsyncIOResult
+{
+    SDL_ASYNCIO_COMPLETE,
+    SDL_ASYNCIO_FAILURE,
+    SDL_ASYNCIO_CANCELED
+} SDL_AsyncIOResult;
+typedef struct SDL_AsyncIOOutcome
+{
+    SDL_AsyncIO *asyncio;
+    SDL_AsyncIOTaskType type;
+    SDL_AsyncIOResult result;
+    void *buffer;
+    Uint64 offset;
+    Uint64 bytes_requested;
+    Uint64 bytes_transferred;
+    void *userdata;
+} SDL_AsyncIOOutcome;
+typedef struct SDL_AsyncIOQueue SDL_AsyncIOQueue;
+SDL_AsyncIO * SDL_AsyncIOFromFile(const char *file, const char *mode);
+Sint64 SDL_GetAsyncIOSize(SDL_AsyncIO *asyncio);
+_Bool                                 SDL_ReadAsyncIO(SDL_AsyncIO *asyncio, void *ptr, Uint64 offset, Uint64 size, SDL_AsyncIOQueue *queue, void *userdata);
+_Bool                                 SDL_WriteAsyncIO(SDL_AsyncIO *asyncio, void *ptr, Uint64 offset, Uint64 size, SDL_AsyncIOQueue *queue, void *userdata);
+_Bool                                 SDL_CloseAsyncIO(SDL_AsyncIO *asyncio,                                                                        _Bool                                                                             flush, SDL_AsyncIOQueue *queue, void *userdata);
+SDL_AsyncIOQueue * SDL_CreateAsyncIOQueue(void);
+void SDL_DestroyAsyncIOQueue(SDL_AsyncIOQueue *queue);
+_Bool                                 SDL_GetAsyncIOResult(SDL_AsyncIOQueue *queue, SDL_AsyncIOOutcome *outcome);
+_Bool                                 SDL_WaitAsyncIOResult(SDL_AsyncIOQueue *queue, SDL_AsyncIOOutcome *outcome, Sint32 timeoutMS);
+void SDL_SignalAsyncIOQueue(SDL_AsyncIOQueue *queue);
+_Bool                                 SDL_LoadFileAsync(const char *file, SDL_AsyncIOQueue *queue, void *userdata);
 typedef int SDL_SpinLock;
 _Bool                                 SDL_TryLockSpinlock(SDL_SpinLock *lock);
 void SDL_LockSpinlock(SDL_SpinLock *lock);
@@ -722,6 +774,7 @@ _Bool                                 SDL_CompareAndSwapAtomicPointer(void **a, 
 void * SDL_SetAtomicPointer(void **a, void *v);
 void * SDL_GetAtomicPointer(void **a);
 _Bool                                 SDL_SetError( const char *fmt, ...) __attribute__ (( format( __printf__, 1, 1 +1 )));
+_Bool                                 SDL_SetErrorV( const char *fmt, va_list ap) __attribute__(( format( __printf__, 1, 0 )));
 _Bool                                 SDL_OutOfMemory(void);
 const char * SDL_GetError(void);
 _Bool                                 SDL_ClearError(void);
@@ -767,12 +820,20 @@ typedef enum SDL_ThreadPriority {
     SDL_THREAD_PRIORITY_HIGH,
     SDL_THREAD_PRIORITY_TIME_CRITICAL
 } SDL_ThreadPriority;
+typedef enum SDL_ThreadState
+{
+    SDL_THREAD_UNKNOWN,
+    SDL_THREAD_ALIVE,
+    SDL_THREAD_DETACHED,
+    SDL_THREAD_COMPLETE
+} SDL_ThreadState;
 typedef int ( * SDL_ThreadFunction) (void *data);
 const char * SDL_GetThreadName(SDL_Thread *thread);
 SDL_ThreadID SDL_GetCurrentThreadID(void);
 SDL_ThreadID SDL_GetThreadID(SDL_Thread *thread);
 _Bool                                 SDL_SetCurrentThreadPriority(SDL_ThreadPriority priority);
 void SDL_WaitThread(SDL_Thread *thread, int *status);
+SDL_ThreadState SDL_GetThreadState(SDL_Thread *thread);
 void SDL_DetachThread(SDL_Thread *thread);
 void * SDL_GetTLS(SDL_TLSID *id);
 typedef void ( *SDL_TLSDestructorCallback)(void *value);
@@ -868,6 +929,8 @@ size_t SDL_IOvprintf(SDL_IOStream *context, const char *fmt, va_list ap) __attri
 _Bool                                 SDL_FlushIO(SDL_IOStream *context);
 void * SDL_LoadFile_IO(SDL_IOStream *src, size_t *datasize,                                                                                        _Bool                                                                                             closeio);
 void * SDL_LoadFile(const char *file, size_t *datasize);
+_Bool                                 SDL_SaveFile_IO(SDL_IOStream *src, const void *data, size_t datasize,                                                                                                       _Bool                                                                                                            closeio);
+_Bool                                 SDL_SaveFile(const char *file, const void *data, size_t datasize);
 _Bool                                 SDL_ReadU8(SDL_IOStream *src, Uint8 *value);
 _Bool                                 SDL_ReadS8(SDL_IOStream *src, Sint8 *value);
 _Bool                                 SDL_ReadU16LE(SDL_IOStream *src, Uint16 *value);
@@ -928,15 +991,17 @@ const char * SDL_GetAudioDeviceName(SDL_AudioDeviceID devid);
 _Bool                                 SDL_GetAudioDeviceFormat(SDL_AudioDeviceID devid, SDL_AudioSpec *spec, int *sample_frames);
 int * SDL_GetAudioDeviceChannelMap(SDL_AudioDeviceID devid, int *count);
 SDL_AudioDeviceID SDL_OpenAudioDevice(SDL_AudioDeviceID devid, const SDL_AudioSpec *spec);
+_Bool                                 SDL_IsAudioDevicePhysical(SDL_AudioDeviceID devid);
+_Bool                                 SDL_IsAudioDevicePlayback(SDL_AudioDeviceID devid);
 _Bool                                 SDL_PauseAudioDevice(SDL_AudioDeviceID dev);
 _Bool                                 SDL_ResumeAudioDevice(SDL_AudioDeviceID dev);
 _Bool                                 SDL_AudioDevicePaused(SDL_AudioDeviceID dev);
 float SDL_GetAudioDeviceGain(SDL_AudioDeviceID devid);
 _Bool                                 SDL_SetAudioDeviceGain(SDL_AudioDeviceID devid, float gain);
 void SDL_CloseAudioDevice(SDL_AudioDeviceID devid);
-_Bool                                 SDL_BindAudioStreams(SDL_AudioDeviceID devid, SDL_AudioStream **streams, int num_streams);
+_Bool                                 SDL_BindAudioStreams(SDL_AudioDeviceID devid, SDL_AudioStream * const *streams, int num_streams);
 _Bool                                 SDL_BindAudioStream(SDL_AudioDeviceID devid, SDL_AudioStream *stream);
-void SDL_UnbindAudioStreams(SDL_AudioStream **streams, int num_streams);
+void SDL_UnbindAudioStreams(SDL_AudioStream * const *streams, int num_streams);
 void SDL_UnbindAudioStream(SDL_AudioStream *stream);
 SDL_AudioDeviceID SDL_GetAudioStreamDevice(SDL_AudioStream *stream);
 SDL_AudioStream * SDL_CreateAudioStream(const SDL_AudioSpec *src_spec, const SDL_AudioSpec *dst_spec);
@@ -1497,7 +1562,7 @@ typedef intptr_t SDL_EGLAttrib;
 typedef int SDL_EGLint;
 typedef SDL_EGLAttrib *( *SDL_EGLAttribArrayCallback)(void *userdata);
 typedef SDL_EGLint *( *SDL_EGLIntArrayCallback)(void *userdata, SDL_EGLDisplay display, SDL_EGLConfig config);
-typedef enum SDL_GLattr
+typedef enum SDL_GLAttr
 {
     SDL_GL_RED_SIZE,
     SDL_GL_GREEN_SIZE,
@@ -1527,30 +1592,11 @@ typedef enum SDL_GLattr
     SDL_GL_CONTEXT_NO_ERROR,
     SDL_GL_FLOATBUFFERS,
     SDL_GL_EGL_PLATFORM
-} SDL_GLattr;
-typedef enum SDL_GLprofile
-{
-    SDL_GL_CONTEXT_PROFILE_CORE = 0x0001,
-    SDL_GL_CONTEXT_PROFILE_COMPATIBILITY = 0x0002,
-    SDL_GL_CONTEXT_PROFILE_ES = 0x0004
-} SDL_GLprofile;
-typedef enum SDL_GLcontextFlag
-{
-    SDL_GL_CONTEXT_DEBUG_FLAG = 0x0001,
-    SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG = 0x0002,
-    SDL_GL_CONTEXT_ROBUST_ACCESS_FLAG = 0x0004,
-    SDL_GL_CONTEXT_RESET_ISOLATION_FLAG = 0x0008
-} SDL_GLcontextFlag;
-typedef enum SDL_GLcontextReleaseFlag
-{
-    SDL_GL_CONTEXT_RELEASE_BEHAVIOR_NONE = 0x0000,
-    SDL_GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH = 0x0001
-} SDL_GLcontextReleaseFlag;
-typedef enum SDL_GLContextResetNotification
-{
-    SDL_GL_CONTEXT_RESET_NO_NOTIFICATION = 0x0000,
-    SDL_GL_CONTEXT_RESET_LOSE_CONTEXT = 0x0001
-} SDL_GLContextResetNotification;
+} SDL_GLAttr;
+typedef Uint32 SDL_GLProfile;
+typedef Uint32 SDL_GLContextFlag;
+typedef Uint32 SDL_GLContextReleaseFlag;
+typedef Uint32 SDL_GLContextResetNotification;
 int SDL_GetNumVideoDrivers(void);
 const char * SDL_GetVideoDriver(int index);
 const char * SDL_GetCurrentVideoDriver(void);
@@ -1565,7 +1611,7 @@ SDL_DisplayOrientation SDL_GetNaturalDisplayOrientation(SDL_DisplayID displayID)
 SDL_DisplayOrientation SDL_GetCurrentDisplayOrientation(SDL_DisplayID displayID);
 float SDL_GetDisplayContentScale(SDL_DisplayID displayID);
 SDL_DisplayMode ** SDL_GetFullscreenDisplayModes(SDL_DisplayID displayID, int *count);
-_Bool                                 SDL_GetClosestFullscreenDisplayMode(SDL_DisplayID displayID, int w, int h, float refresh_rate,                                                                                                                                _Bool                                                                                                                                     include_high_density_modes, SDL_DisplayMode *mode);
+_Bool                                 SDL_GetClosestFullscreenDisplayMode(SDL_DisplayID displayID, int w, int h, float refresh_rate,                                                                                                                                _Bool                                                                                                                                     include_high_density_modes, SDL_DisplayMode *closest);
 const SDL_DisplayMode * SDL_GetDesktopDisplayMode(SDL_DisplayID displayID);
 const SDL_DisplayMode * SDL_GetCurrentDisplayMode(SDL_DisplayID displayID);
 SDL_DisplayID SDL_GetDisplayForPoint(const SDL_Point *point);
@@ -1662,8 +1708,8 @@ SDL_FunctionPointer SDL_EGL_GetProcAddress(const char *proc);
 void SDL_GL_UnloadLibrary(void);
 _Bool                                 SDL_GL_ExtensionSupported(const char *extension);
 void SDL_GL_ResetAttributes(void);
-_Bool                                 SDL_GL_SetAttribute(SDL_GLattr attr, int value);
-_Bool                                 SDL_GL_GetAttribute(SDL_GLattr attr, int *value);
+_Bool                                 SDL_GL_SetAttribute(SDL_GLAttr attr, int value);
+_Bool                                 SDL_GL_GetAttribute(SDL_GLAttr attr, int *value);
 SDL_GLContext SDL_GL_CreateContext(SDL_Window *window);
 _Bool                                 SDL_GL_MakeCurrent(SDL_Window *window, SDL_GLContext context);
 SDL_Window * SDL_GL_GetCurrentWindow(void);
@@ -1687,6 +1733,13 @@ typedef void ( *SDL_DialogFileCallback)(void *userdata, const char * const *file
 void SDL_ShowOpenFileDialog(SDL_DialogFileCallback callback, void *userdata, SDL_Window *window, const SDL_DialogFileFilter *filters, int nfilters, const char *default_location,                                                                                                                                                                                                              _Bool                                                                                                                                                                                                                   allow_many);
 void SDL_ShowSaveFileDialog(SDL_DialogFileCallback callback, void *userdata, SDL_Window *window, const SDL_DialogFileFilter *filters, int nfilters, const char *default_location);
 void SDL_ShowOpenFolderDialog(SDL_DialogFileCallback callback, void *userdata, SDL_Window *window, const char *default_location,                                                                                                                                                             _Bool                                                                                                                                                                  allow_many);
+typedef enum SDL_FileDialogType
+{
+    SDL_FILEDIALOG_OPENFILE,
+    SDL_FILEDIALOG_SAVEFILE,
+    SDL_FILEDIALOG_OPENFOLDER
+} SDL_FileDialogType;
+void SDL_ShowFileDialogWithProperties(SDL_FileDialogType type, SDL_DialogFileCallback callback, void *userdata, SDL_PropertiesID props);
 typedef struct SDL_GUID {
     Uint8 data[16];
 } SDL_GUID;
@@ -2506,6 +2559,7 @@ typedef enum SDL_EventType
     SDL_EVENT_FINGER_DOWN = 0x700,
     SDL_EVENT_FINGER_UP,
     SDL_EVENT_FINGER_MOTION,
+    SDL_EVENT_FINGER_CANCELED,
     SDL_EVENT_CLIPBOARD_UPDATE = 0x900,
     SDL_EVENT_DROP_FILE = 0x1000,
     SDL_EVENT_DROP_TEXT,
@@ -2530,6 +2584,11 @@ typedef enum SDL_EventType
     SDL_EVENT_CAMERA_DEVICE_DENIED,
     SDL_EVENT_RENDER_TARGETS_RESET = 0x2000,
     SDL_EVENT_RENDER_DEVICE_RESET,
+    SDL_EVENT_RENDER_DEVICE_LOST,
+    SDL_EVENT_PRIVATE0 = 0x4000,
+    SDL_EVENT_PRIVATE1,
+    SDL_EVENT_PRIVATE2,
+    SDL_EVENT_PRIVATE3,
     SDL_EVENT_POLL_SENTINEL = 0x7F00,
     SDL_EVENT_USER = 0x8000,
     SDL_EVENT_LAST = 0xFFFF,
@@ -2794,6 +2853,13 @@ typedef struct SDL_CameraDeviceEvent
     Uint64 timestamp;
     SDL_CameraID which;
 } SDL_CameraDeviceEvent;
+typedef struct SDL_RenderEvent
+{
+    SDL_EventType type;
+    Uint32 reserved;
+    Uint64 timestamp;
+    SDL_WindowID windowID;
+} SDL_RenderEvent;
 typedef struct SDL_TouchFingerEvent
 {
     SDL_EventType type;
@@ -2883,7 +2949,7 @@ typedef struct SDL_ClipboardEvent
     Uint32 reserved;
     Uint64 timestamp;
    _Bool         owner;
-    Sint32 n_mime_types;
+    Sint32 num_mime_types;
     const char **mime_types;
 } SDL_ClipboardEvent;
 typedef struct SDL_SensorEvent
@@ -2948,6 +3014,7 @@ typedef union SDL_Event
     SDL_PenMotionEvent pmotion;
     SDL_PenButtonEvent pbutton;
     SDL_PenAxisEvent paxis;
+    SDL_RenderEvent render;
     SDL_DropEvent drop;
     SDL_ClipboardEvent clipboard;
     Uint8 padding[128];
@@ -3026,6 +3093,7 @@ _Bool                                 SDL_RenamePath(const char *oldpath, const 
 _Bool                                 SDL_CopyFile(const char *oldpath, const char *newpath);
 _Bool                                 SDL_GetPathInfo(const char *path, SDL_PathInfo *info);
 char ** SDL_GlobDirectory(const char *path, const char *pattern, SDL_GlobFlags flags, int *count);
+char * SDL_GetCurrentDirectory(void);
 typedef struct SDL_GPUDevice SDL_GPUDevice;
 typedef struct SDL_GPUBuffer SDL_GPUBuffer;
 typedef struct SDL_GPUTransferBuffer SDL_GPUTransferBuffer;
@@ -3343,7 +3411,7 @@ typedef enum SDL_GPUSwapchainComposition
     SDL_GPU_SWAPCHAINCOMPOSITION_SDR,
     SDL_GPU_SWAPCHAINCOMPOSITION_SDR_LINEAR,
     SDL_GPU_SWAPCHAINCOMPOSITION_HDR_EXTENDED_LINEAR,
-    SDL_GPU_SWAPCHAINCOMPOSITION_HDR10_ST2048
+    SDL_GPU_SWAPCHAINCOMPOSITION_HDR10_ST2084
 } SDL_GPUSwapchainComposition;
 typedef struct SDL_GPUViewport
 {
@@ -3954,6 +4022,9 @@ _Bool                                 SDL_SetGPUSwapchainParameters(
     SDL_Window *window,
     SDL_GPUSwapchainComposition swapchain_composition,
     SDL_GPUPresentMode present_mode);
+_Bool                                 SDL_SetGPUAllowedFramesInFlight(
+    SDL_GPUDevice *device,
+    Uint32 allowed_frames_in_flight);
 SDL_GPUTextureFormat SDL_GetGPUSwapchainTextureFormat(
     SDL_GPUDevice *device,
     SDL_Window *window);
@@ -3963,9 +4034,20 @@ _Bool                                 SDL_AcquireGPUSwapchainTexture(
     SDL_GPUTexture **swapchain_texture,
     Uint32 *swapchain_texture_width,
     Uint32 *swapchain_texture_height);
+_Bool                                 SDL_WaitForGPUSwapchain(
+    SDL_GPUDevice *device,
+    SDL_Window *window);
+_Bool                                 SDL_WaitAndAcquireGPUSwapchainTexture(
+    SDL_GPUCommandBuffer *command_buffer,
+    SDL_Window *window,
+    SDL_GPUTexture **swapchain_texture,
+    Uint32 *swapchain_texture_width,
+    Uint32 *swapchain_texture_height);
 _Bool                                 SDL_SubmitGPUCommandBuffer(
     SDL_GPUCommandBuffer *command_buffer);
 SDL_GPUFence * SDL_SubmitGPUCommandBufferAndAcquireFence(
+    SDL_GPUCommandBuffer *command_buffer);
+_Bool                                 SDL_CancelGPUCommandBuffer(
     SDL_GPUCommandBuffer *command_buffer);
 _Bool                                 SDL_WaitForGPUIdle(
     SDL_GPUDevice *device);
@@ -4210,6 +4292,9 @@ _Bool                                 SDL_InitSubSystem(SDL_InitFlags flags);
 void SDL_QuitSubSystem(SDL_InitFlags flags);
 SDL_InitFlags SDL_WasInit(SDL_InitFlags flags);
 void SDL_Quit(void);
+_Bool                                 SDL_IsMainThread(void);
+typedef void ( *SDL_MainThreadCallback)(void *userdata);
+_Bool                                 SDL_RunOnMainThread(SDL_MainThreadCallback callback, void *userdata,                                                                                                      _Bool                                                                                                           wait_complete);
 _Bool                                 SDL_SetAppMetadata(const char *appname, const char *appversion, const char *appidentifier);
 _Bool                                 SDL_SetAppMetadataProperty(const char *name, const char *value);
 const char * SDL_GetAppMetadataProperty(const char *name);
@@ -4278,6 +4363,7 @@ void SDL_LogMessageV(int category,
                                              SDL_LogPriority priority,
                                              const char *fmt, va_list ap) __attribute__(( format( __printf__, 3, 0 )));
 typedef void ( *SDL_LogOutputFunction)(void *userdata, int category, SDL_LogPriority priority, const char *message);
+SDL_LogOutputFunction SDL_GetDefaultLogOutputFunction(void);
 void SDL_GetLogOutputFunction(SDL_LogOutputFunction *callback, void **userdata);
 void SDL_SetLogOutputFunction(SDL_LogOutputFunction callback, void *userdata);
 typedef Uint32 SDL_MessageBoxFlags;
@@ -4453,6 +4539,9 @@ _Bool                                 SDL_RenderTextureRotated(SDL_Renderer *ren
                                                      const SDL_FRect *srcrect, const SDL_FRect *dstrect,
                                                      double angle, const SDL_FPoint *center,
                                                      SDL_FlipMode flip);
+_Bool                                 SDL_RenderTextureAffine(SDL_Renderer *renderer, SDL_Texture *texture,
+                                                     const SDL_FRect *srcrect, const SDL_FPoint *origin,
+                                                     const SDL_FPoint *right, const SDL_FPoint *down);
 _Bool                                 SDL_RenderTextureTiled(SDL_Renderer *renderer, SDL_Texture *texture, const SDL_FRect *srcrect, float scale, const SDL_FRect *dstrect);
 _Bool                                 SDL_RenderTexture9Grid(SDL_Renderer *renderer, SDL_Texture *texture, const SDL_FRect *srcrect, float left_width, float right_width, float top_height, float bottom_height, float scale, const SDL_FRect *dstrect);
 _Bool                                 SDL_RenderGeometry(SDL_Renderer *renderer,
@@ -4476,6 +4565,8 @@ void * SDL_GetRenderMetalCommandEncoder(SDL_Renderer *renderer);
 _Bool                                 SDL_AddVulkanRenderSemaphores(SDL_Renderer *renderer, Uint32 wait_stage_mask, Sint64 wait_semaphore, Sint64 signal_semaphore);
 _Bool                                 SDL_SetRenderVSync(SDL_Renderer *renderer, int vsync);
 _Bool                                 SDL_GetRenderVSync(SDL_Renderer *renderer, int *vsync);
+_Bool                                 SDL_RenderDebugText(SDL_Renderer *renderer, float x, float y, const char *str);
+_Bool                                 SDL_RenderDebugTextFormat(SDL_Renderer *renderer, float x, float y, const char *fmt, ...) __attribute__ (( format( __printf__, 4, 4 +1 )));
 typedef struct SDL_StorageInterface
 {
     Uint32 version;
@@ -4519,6 +4610,15 @@ typedef        _Bool             ( *SDL_X11EventHook)(void *userdata, XEvent *xe
 void SDL_SetX11EventHook(SDL_X11EventHook callback, void *userdata);
 _Bool                                 SDL_IsTablet(void);
 _Bool                                 SDL_IsTV(void);
+typedef enum SDL_Sandbox
+{
+    SDL_SANDBOX_NONE = 0,
+    SDL_SANDBOX_UNKNOWN_CONTAINER,
+    SDL_SANDBOX_FLATPAK,
+    SDL_SANDBOX_SNAP,
+    SDL_SANDBOX_MACOS
+} SDL_Sandbox;
+SDL_Sandbox SDL_GetSandbox(void);
 void SDL_OnApplicationWillTerminate(void);
 void SDL_OnApplicationDidReceiveMemoryWarning(void);
 void SDL_OnApplicationWillEnterBackground(void);
@@ -4570,6 +4670,32 @@ SDL_TimerID SDL_AddTimer(Uint32 interval, SDL_TimerCallback callback, void *user
 typedef Uint64 ( *SDL_NSTimerCallback)(void *userdata, SDL_TimerID timerID, Uint64 interval);
 SDL_TimerID SDL_AddTimerNS(Uint64 interval, SDL_NSTimerCallback callback, void *userdata);
 _Bool                                 SDL_RemoveTimer(SDL_TimerID id);
+typedef struct SDL_Tray SDL_Tray;
+typedef struct SDL_TrayMenu SDL_TrayMenu;
+typedef struct SDL_TrayEntry SDL_TrayEntry;
+typedef Uint32 SDL_TrayEntryFlags;
+typedef void ( *SDL_TrayCallback)(void *userdata, SDL_TrayEntry *entry);
+SDL_Tray * SDL_CreateTray(SDL_Surface *icon, const char *tooltip);
+void SDL_SetTrayIcon(SDL_Tray *tray, SDL_Surface *icon);
+void SDL_SetTrayTooltip(SDL_Tray *tray, const char *tooltip);
+SDL_TrayMenu * SDL_CreateTrayMenu(SDL_Tray *tray);
+SDL_TrayMenu * SDL_CreateTraySubmenu(SDL_TrayEntry *entry);
+SDL_TrayMenu * SDL_GetTrayMenu(SDL_Tray *tray);
+SDL_TrayMenu * SDL_GetTraySubmenu(SDL_TrayEntry *entry);
+const SDL_TrayEntry ** SDL_GetTrayEntries(SDL_TrayMenu *menu, int *size);
+void SDL_RemoveTrayEntry(SDL_TrayEntry *entry);
+SDL_TrayEntry * SDL_InsertTrayEntryAt(SDL_TrayMenu *menu, int pos, const char *label, SDL_TrayEntryFlags flags);
+void SDL_SetTrayEntryLabel(SDL_TrayEntry *entry, const char *label);
+const char * SDL_GetTrayEntryLabel(SDL_TrayEntry *entry);
+void SDL_SetTrayEntryChecked(SDL_TrayEntry *entry,                                                                               _Bool                                                                                    checked);
+_Bool                                 SDL_GetTrayEntryChecked(SDL_TrayEntry *entry);
+void SDL_SetTrayEntryEnabled(SDL_TrayEntry *entry,                                                                               _Bool                                                                                    enabled);
+_Bool                                 SDL_GetTrayEntryEnabled(SDL_TrayEntry *entry);
+void SDL_SetTrayEntryCallback(SDL_TrayEntry *entry, SDL_TrayCallback callback, void *userdata);
+void SDL_DestroyTray(SDL_Tray *tray);
+SDL_TrayMenu * SDL_GetTrayEntryParent(SDL_TrayEntry *entry);
+SDL_TrayEntry * SDL_GetTrayMenuParentEntry(SDL_TrayMenu *menu);
+SDL_Tray * SDL_GetTrayMenuParentTray(SDL_TrayMenu *menu);
 int SDL_GetVersion(void);
 const char * SDL_GetRevision(void);]]
 ffi_cdef[[//defines
@@ -4648,6 +4774,17 @@ static const int SDL_WINDOW_TRANSPARENT = (0x0000000040000000);
 static const int SDL_WINDOW_NOT_FOCUSABLE = (0x0000000080000000);
 static const int SDL_WINDOWPOS_UNDEFINED_MASK = 0x1FFF0000u;
 static const int SDL_WINDOWPOS_CENTERED_MASK = 0x2FFF0000u;
+static const int SDL_GL_CONTEXT_PROFILE_CORE = 0x0001;
+static const int SDL_GL_CONTEXT_PROFILE_COMPATIBILITY = 0x0002;
+static const int SDL_GL_CONTEXT_PROFILE_ES = 0x0004;
+static const int SDL_GL_CONTEXT_DEBUG_FLAG = 0x0001;
+static const int SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG = 0x0002;
+static const int SDL_GL_CONTEXT_ROBUST_ACCESS_FLAG = 0x0004;
+static const int SDL_GL_CONTEXT_RESET_ISOLATION_FLAG = 0x0008;
+static const int SDL_GL_CONTEXT_RELEASE_BEHAVIOR_NONE = 0x0000;
+static const int SDL_GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH = 0x0001;
+static const int SDL_GL_CONTEXT_RESET_NO_NOTIFICATION = 0x0000;
+static const int SDL_GL_CONTEXT_RESET_LOSE_CONTEXT = 0x0001;
 static const int SDL_WINDOW_SURFACE_VSYNC_DISABLED = 0;
 static const int SDL_WINDOW_SURFACE_VSYNC_ADAPTIVE = (-1);
 static const int SDL_JOYSTICK_AXIS_MAX = 32767;
@@ -5009,13 +5146,19 @@ static const int SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT = 0x00000001u;
 static const int SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT = 0x00000002u;
 static const int SDL_RENDERER_VSYNC_DISABLED = 0;
 static const int SDL_RENDERER_VSYNC_ADAPTIVE = (-1);
+static const int SDL_DEBUG_TEXT_FONT_CHARACTER_SIZE = 8;
 static const int SDL_MS_PER_SECOND = 1000;
 static const int SDL_US_PER_SECOND = 1000000;
 static const int SDL_NS_PER_MS = 1000000;
 static const int SDL_NS_PER_US = 1000;
+static const int SDL_TRAYENTRY_BUTTON = 0x00000001u;
+static const int SDL_TRAYENTRY_CHECKBOX = 0x00000002u;
+static const int SDL_TRAYENTRY_SUBMENU = 0x00000004u;
+static const int SDL_TRAYENTRY_DISABLED = 0x80000000u;
+static const int SDL_TRAYENTRY_CHECKED = 0x40000000u;
 static const int SDL_MAJOR_VERSION = 3;
 static const int SDL_MINOR_VERSION = 1;
-static const int SDL_MICRO_VERSION = 5;]]
+static const int SDL_MICRO_VERSION = 8;]]
 
 ffi_cdef[[typedef unsigned long (__cdecl *pfnSDL_CurrentBeginThread) (void *, unsigned,
         unsigned (__stdcall *func)(void *), void *arg,
